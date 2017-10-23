@@ -6,6 +6,11 @@ var login = {
   logbot: {
     "name": "Vani",
     "tk": "token here"
+  },
+  test: {
+    "status": true,
+    "name" : "test",
+    "tk": "token here"
   }
 };
 
