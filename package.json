@@ -1,0 +1,25 @@
+{
+  "name": "nekobot",
+  "version": "0.0.1",
+  "description": "Several neko bots grouped in one project. The first ones are taken from the NekoPara series.",
+  "main": "neko.js",
+  "dependencies": {
+    "booru": "^0.2.0",
+    "discord.js": "^11.2.1",
+    "ytdl-core": "^0.7.19",
+    "opusscript": "^0.0.3",
+    "images": "^2.2.1",
+    "bufferutil": "^3.0.2",
+    "erlpack": "hammerandchisel/erlpack",
+    "node-opus": "^0.2.6",
+    "sodium": "^2.0.1",
+    "libsodium-wrappers": "^0.5.4",
+    "uws": "^0.14.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Esprit Orgue",
+  "license": "ISC"
+}
