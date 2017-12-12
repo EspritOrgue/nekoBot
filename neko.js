@@ -19,7 +19,6 @@ bot.on("message", msg => {
   }
   if (msg.channel.type == "dm" || msg.channel.type == "group") {
     if(msg.author.id != owner.id){
-      msg.reply(msg.author.id+" "+owner.id);
       msg.reply("Sorry, I can't send you a message in private currently.");
     }
     else{
