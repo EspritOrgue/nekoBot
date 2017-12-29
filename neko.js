@@ -4,11 +4,10 @@ let fs = require('fs');
 let ytdl = require('ytdl-core');
 var login = require('./login');
 var owner = require('./owner');
-var rand = login.test.status?Object.keys(login).length-1:Math.floor(Math.random())*(Object.keys(login).length-1);
+var rand = (process.argv[2]=='test')?Object.keys(login).length-1:Math.floor(Math.random())*(Object.keys(login).length-1);
 var neko = login[Object.keys(login)[rand]].name;
-
+console.log(rand);
 var disconnect = require("./commands/owner/dc");
-
 const CMD = [
   disconnect
 ];
