@@ -1,21 +1,37 @@
 var dialog = {
-  choco:{
+  Chocobot:{
     greetings:[
-      
+      'Choco\'s back, Master~'
     ],
     goodbye:[
-
+      'Choco\'s going to sleep.~'
+    ],
+    games:[
+      "Searching Lewds",
+      "Meowing",
+      "Thot Patrol",
+      "with my tail",
+      "with Vanibot",
+      "with Master's computer"
     ]
   },
-  vani:{
+  Vanibot:{
     greetings:[
-
+      'Back, Master~'
     ],
     goodbye:[
-
+      'Sleepy.~'
+    ],
+    games:[
+      "Searching Lewds",
+      "Meowing",
+      "Thot Patrol",
+      "with my tail",
+      "with Chocobot",
+      "with Master's computer"
     ]
   },
-  test:{
+  Ai:{
     greetings:[
 
     ],

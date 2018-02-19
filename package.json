@@ -5,16 +5,18 @@
   "main": "neko.js",
   "dependencies": {
     "booru": "^0.2.0",
-    "discord.js": "^11.2.1",
-    "ytdl-core": "^0.7.19",
-    "opusscript": "^0.0.3",
-    "images": "^2.2.1",
     "bufferutil": "^3.0.2",
+    "discord-rich-presence": "0.0.6",
+    "discord-rpc": "^3.0.0-beta.8",
+    "discord.js": "^11.2.1",
     "erlpack": "hammerandchisel/erlpack",
-    "node-opus": "^0.2.6",
-    "sodium": "^2.0.1",
+    "images": "^2.2.1",
     "libsodium-wrappers": "^0.5.4",
-    "uws": "^0.14.5"
+    "node-opus": "^0.2.6",
+    "opusscript": "^0.0.3",
+    "sodium": "^2.0.3",
+    "uws": "^0.14.5",
+    "ytdl-core": "^0.7.19"
   },
   "devDependencies": {},
   "scripts": {
