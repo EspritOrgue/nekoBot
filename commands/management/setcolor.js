@@ -1,5 +1,8 @@
 module.exports = {
   common_names: ['setcolor','sc','setcolour'],
+  title: "Set color",
+  description: "It will display the color list or set or removethe color you chose.",
+  example: "\nTo get the color list: !setcolor\n To set/remove a color: !setcolor <optional:role name>",
   handle: function(bot){
     var rList = bot.serverManager.getServer(bot.message.guild.id).color_roles;
     if(bot.args[0] == undefined){

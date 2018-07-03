@@ -35,7 +35,8 @@ serverManager.prototype.createEmptyServer = function(server){
         mangement_log_channel_id: "",
         vocal_log_channel_id: "",
         join_log_channel_id: "",
-        ignored_channels: []
+        ignored_channels: [],
+				prefix: "!"
     };
 }
 serverManager.prototype.save = function(msg = ''){
@@ -74,6 +75,10 @@ serverManager.prototype.update = function(option,value){
 				that.getServer(that.bot.message.guild.id).admin.push(value);
 				that.save();
 				break;
+			case "autorole":
+				that.getServer(that.bot.message.guild.id).autorole = value;
+				that.save();
+				break;
 			case "color":
 				if(that.getServer(that.bot.message.guild.id).color_roles.indexOf(value)==-1){
 					that.getServer(that.bot.message.guild.id).color_roles.push(value);
@@ -83,6 +88,24 @@ serverManager.prototype.update = function(option,value){
 					that.bot.message.reply("This role was already added.");
 				}
 				break;
+				case "fetishes":
+					if(that.getServer(that.bot.message.guild.id).fetishes_roles.indexOf(value)==-1){
+						that.getServer(that.bot.message.guild.id).fetishes_roles.push(value);
+						console.log(that.serverList);
+						that.save();
+					}else{
+						that.bot.message.reply("This role was already added.");
+					}
+					break;
+				case "prefix":
+					that.getServer(that.bot.message.guild.id).prefix = value;
+					console.log(that.serverList);
+					that.save();
+				break;
+				case "votecolor":
+					that.getServer(that.bot.message.guild.id).voterole = value;
+					that.save();
+					break;
 			default:
 				console.log("The option is not correct.");
 				break;

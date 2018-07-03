@@ -33,11 +33,8 @@ bot.file_path = owner.file_path;
 bot.default_prefix ='!';
 
 bot.on("message", msg => {
-  var guild = msg.guild;
-  bot.guild_info = bot.serverManager.getServer(guild.id);
   if(msg.author.bot) return;
-  if(!msg.content.startsWith(bot.default_prefix) && !msg.content.startsWith(bot.guild_info.prefix)) return;
-  msg.channel.startTyping();
+
   if (msg.channel.type == "dm" || msg.channel.type == "group") {
     if(msg.author.id != owner.id){
       msg.reply("Sorry, I can't send you a message in private currently.");
@@ -47,6 +44,13 @@ bot.on("message", msg => {
     }
   }
   else{
+    var guild = msg.guild;
+    bot.guild = guild;
+    bot.guild_info = bot.serverManager.getServer(guild.id);
+
+    if(!msg.content.startsWith(bot.default_prefix) && !msg.content.startsWith(bot.guild_info.prefix)) return;
+    if(bot.guild_info.prefix != undefined && msg.content.startsWith(bot.default_prefix)) return;
+
     bot.message = msg;
     bot.dialog = dialog;
     bot.command.isCommand(bot.helper.toArray(msg.content.toString()));
@@ -55,11 +59,16 @@ bot.on("message", msg => {
 });
 
 bot.on('guildMemberAdd', (member) => {
-    member.addRole(member.guild.roles.find("name","LPFG Members")).then(output => {
+  var guild = member.guild;
+  bot.guild = guild;
+  bot.guild_info = bot.serverManager.getServer(guild.id);
+  if(bot.guild_info.autorole != undefined){
+    member.addRole(member.guild.roles.find("id",bot.guild_info.autorole)).then(output => {
         console.log("Role Given.");
     }).catch(err => {
         console.log("Error when trying to give the role to that user "+member.tag);
     });
+  }
     var channel = member.guild.channels.get("349870683284832258");
     var emb = bot.funct.richEmbed([member.guild.name,undefined,'RANDOM',member.user.avatarURL,member.user.tag+" has joined the server."]);
     channel.send({embed:emb});
@@ -153,7 +162,7 @@ bot.on('messageUpdate', (oMsg, nMsg) => {
 bot.on("ready", () => {
   console.log(dialog[neko].greetings.toString());
   var channel = bot.guilds.find("id","158225197877559296").channels.find("id","158225197877559296");
-  channel.send(dialog[neko].greetings);
+  //channel.send(dialog[neko].greetings);
   bot.user.setPresence({ game: { name: dialog[neko].games[Math.floor(Math.random()*dialog[neko].games .length)], type: 0 } })
   .then(function(){console.log("Game set")})
   .catch(function(){console.log("Game not set")});
